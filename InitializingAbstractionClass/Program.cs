@@ -69,22 +69,22 @@ namespace InitializingAbstractionClass
 
     public class Hoge
     {
-        public Nullable<byte> hoge1 { get; set; }
-        public Nullable<short> hoge2 { get; set; }
-        public Nullable<ushort> hoge3 { get; set; }
-        public Nullable<int> hoge4 { get; set; }
-        public Nullable<uint> hoge5 { get; set; }
-        public Nullable<long> hoge6 { get; set; }
-        public Nullable<ulong> hoge7 { get; set; }
-        public Nullable<float> hoge8 { get; set; }
-        public Nullable<double> hoge9 { get; set; }
-        public Nullable<decimal> hoge10 { get; set; }
-        public string hoge11 { get; set; }
-        public ChildHoge hoge12 { get; set; }
+        public Nullable<byte> Hoge1 { get; set; }
+        public Nullable<short> Hoge2 { get; set; }
+        public Nullable<ushort> Hoge3 { get; set; }
+        public Nullable<int> Hoge4 { get; set; }
+        public Nullable<uint> Hoge5 { get; set; }
+        public Nullable<long> Hoge6 { get; set; }
+        public Nullable<ulong> Hoge7 { get; set; }
+        public Nullable<float> Hoge8 { get; set; }
+        public Nullable<double> Hoge9 { get; set; }
+        public Nullable<decimal> Hoge10 { get; set; }
+        public string Hoge11 { get; set; }
+        public ChildHoge Hoge12 { get; set; }
     }
     public class ChildHoge
     {
-        public int hoge1 { get; set; }
-        public int hoge2 { get; set; }
+        public int Hoge1 { get; set; }
+        public int Hoge2 { get; set; }
     }
 }
