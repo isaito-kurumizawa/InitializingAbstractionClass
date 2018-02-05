@@ -1,0 +1,2 @@
+# InitializingAbstractionClass
+抽象化クラスの初期化
