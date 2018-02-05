@@ -1,2 +1,8 @@
 # InitializingAbstractionClass
-特定の既定値で初期化を行う
+独自クラスの規定値を変換する
+|:--|--:|
+||変換前|変換後|
+|string|string.Empty|
+|Nullable<int>|0|
+|OriginalClass|new OriginalClass()|
+
