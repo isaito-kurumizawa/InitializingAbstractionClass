@@ -15,12 +15,13 @@ namespace InitializingAbstractionClass
         }
 
         /// <summary>
-        /// 抽象化クラスの初期化
+        /// 特定の規定値で初期化を行う
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
         static void InitializingAbstractionClass<T>(T obj)
         {
+            
             var properties = typeof(T).GetProperties();
             foreach (var property in properties)
             {
