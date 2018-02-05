@@ -8,24 +8,61 @@ namespace InitializingAbstractionClass
 {
     class Program
     {
+        /// <summary>
+        /// ジェネリックメソッドで自作クラスの規定値を設定する
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             var model = new Hoge();
-            InitializingAbstractionClass<Hoge>(model);
+            model.InitializingAbstractionClass<Hoge>();
         }
+    }
 
+    /// <summary>
+    /// Hogeクラス
+    /// </summary>
+    public class Hoge : BaseClass
+    {
+        public Nullable<byte> Hoge1 { get; set; }
+        public Nullable<short> Hoge2 { get; set; }
+        public Nullable<ushort> Hoge3 { get; set; }
+        public Nullable<int> Hoge4 { get; set; }
+        public Nullable<uint> Hoge5 { get; set; }
+        public Nullable<long> Hoge6 { get; set; }
+        public Nullable<ulong> Hoge7 { get; set; }
+        public Nullable<float> Hoge8 { get; set; }
+        public Nullable<double> Hoge9 { get; set; }
+        public Nullable<decimal> Hoge10 { get; set; }
+        public string Hoge11 { get; set; }
+        public ChildHoge Hoge12 { get; set; }
+
+    }
+
+    /// <summary>
+    /// Hogeクラスの子
+    /// </summary>
+    public class ChildHoge
+    {
+        public int Hoge1 { get; set; }
+        public int Hoge2 { get; set; }
+    }
+
+    /// <summary>
+    /// Baseクラス
+    /// </summary>
+    public class BaseClass
+    {
         /// <summary>
         /// 特定の規定値で初期化を行う
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        static void InitializingAbstractionClass<T>(T obj)
+        public void InitializingAbstractionClass<T>()
         {
-            
             var properties = typeof(T).GetProperties();
             foreach (var property in properties)
             {
-                var value = typeof(T).GetProperty(property.Name).GetValue(obj, null);
+                var value = typeof(T).GetProperty(property.Name).GetValue(this, null);
 
                 // 値がない場合に初期化
                 if (value == null)
@@ -63,29 +100,8 @@ namespace InitializingAbstractionClass
                         value = Activator.CreateInstance(currentType, null);
                     }
                 }
-                property.SetValue(obj, value);
+                property.SetValue(this, value);
             }
         }
-    }
-
-    public class Hoge
-    {
-        public Nullable<byte> Hoge1 { get; set; }
-        public Nullable<short> Hoge2 { get; set; }
-        public Nullable<ushort> Hoge3 { get; set; }
-        public Nullable<int> Hoge4 { get; set; }
-        public Nullable<uint> Hoge5 { get; set; }
-        public Nullable<long> Hoge6 { get; set; }
-        public Nullable<ulong> Hoge7 { get; set; }
-        public Nullable<float> Hoge8 { get; set; }
-        public Nullable<double> Hoge9 { get; set; }
-        public Nullable<decimal> Hoge10 { get; set; }
-        public string Hoge11 { get; set; }
-        public ChildHoge Hoge12 { get; set; }
-    }
-    public class ChildHoge
-    {
-        public int Hoge1 { get; set; }
-        public int Hoge2 { get; set; }
     }
 }
