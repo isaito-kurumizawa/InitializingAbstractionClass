@@ -1,2 +1,2 @@
 # InitializingAbstractionClass
-抽象化クラスの初期化
+特定の既定値で初期化を行う
